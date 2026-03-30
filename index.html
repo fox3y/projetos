@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Controle | @Olinuh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card: #161b22;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --blue: #58a6ff;
+            --gray: #8b949e;
+            --green: #3fb950;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            padding: 60px 20px;
+            line-height: 1.6;
+        }
+
+        .container { width: 100%; max-width: 600px; }
+
+        /* Header - Foto e Bio */
+        .profile-header { text-align: center; margin-bottom: 50px; }
+        .profile-img { 
+            width: 110px; height: 110px; border-radius: 50%; 
+            border: 2px solid var(--blue); margin-bottom: 15px;
+            padding: 5px; background: var(--card);
+            object-fit: cover;
+        }
+        h2 { font-size: 1.8rem; letter-spacing: -1px; margin-bottom: 5px; }
+        .typewriter { color: var(--gray); font-size: 1.1rem; min-height: 24px; }
+        #text-rotate { color: var(--blue); font-weight: 600; border-right: 2px solid var(--blue); padding-right: 5px; }
+
+        .section-title { 
+            margin: 40px 0 15px; font-size: 0.75rem; 
+            text-transform: uppercase; color: var(--gray); letter-spacing: 2px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Lista de Serviços Estilo Dashboard */
+        .service-list { display: flex; flex-direction: column; gap: 12px; }
+        
+        .service-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-item:hover { 
+            border-color: var(--blue); 
+            background: #1c2128;
+            transform: translateX(8px);
+        }
+
+        .service-info { display: flex; align-items: center; gap: 20px; }
+        
+        .icon-box { 
+            width: 48px; height: 48px; border-radius: 10px; 
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+        }
+
+        /* Cores Temáticas */
+        .youtube-icon { background: rgba(255, 77, 77, 0.1); color: #ff4d4d; }
+        .github-icon { background: rgba(255, 255, 255, 0.05); color: #ffffff; }
+        .form-icon { background: rgba(88, 166, 255, 0.1); color: var(--blue); }
+
+        .content-text h3 { font-size: 1.05rem; margin-bottom: 2px; font-weight: 600; }
+        .content-text p { font-size: 0.85rem; color: var(--gray); }
+
+        .status-badge { 
+            font-size: 0.65rem; padding: 4px 10px; border-radius: 20px; 
+            background: rgba(63, 185, 80, 0.1); color: var(--green); 
+            border: 1px solid var(--green);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .footer { text-align: center; margin-top: 60px; color: var(--gray); font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="profile-header">
+            <img src="https://github.com/fox3y.png" alt="fox3y profile" class="profile-img">
+            <h2>@Olinuh</h2>
+            <p class="typewriter"> <span id="text-rotate"></span></p>
+        </header>
+
+        <div class="section-title">
+            <i class="fas fa-server" style="font-size: 0.7rem;"></i> 
+            Aplicações Ativas
+        </div>
+        
+        <div class="service-list">
+            
+            <a href="https://www.youtube.com/channel/UCVN8y7FQ3RZpGrOWz1NCnnw" target="_blank" class="service-item">
+                <div class="service-info">
+                    <div class="icon-box youtube-icon"><i class="fab fa-youtube"></i></div>
+                    <div class="content-text">
+                        <h3>Meu canal do YouTube</h3>
+                        <p>Tutoriais e Engenharia de Dados</p>
+                    </div>
+                </div>
+                <span class="status-badge">Online</span>
+            </a>
+
+            <a href="https://github.com/fox3y" target="_blank" class="service-item">
+                <div class="service-info">
+                    <div class="icon-box github-icon"><i class="fab fa-github"></i></div>
+                    <div class="content-text">
+                        <h3>Perfil do GitHub</h3>
+                        <p>Repositórios e Projetos Open Source</p>
+                    </div>
+                </div>
+                <span class="status-badge">Active</span>
+            </a>
+
+            <a href="formulario.html" class="service-item">
+                <div class="service-info">
+                    <div class="icon-box form-icon"><i class="fas fa-code-branch"></i></div>
+                    <div class="content-text">
+                        <h3>Formulario dos Inscritos</h3>
+                        <p>Envie sua mensagem para o servidor</p>
+                    </div>
+                </div>
+                <span class="status-badge" style="color: #f0883e; border-color: #f0883e; background: rgba(240, 136, 62, 0.1);">Local</span>
+            </a>
+
+        </div>
+
+        <footer class="footer">
+            <p>© 2026 Olinuh </p>
+        </footer>
+    </div>
+
+    <script>
+        // Lógica do Typewriter (Digitação)
+        const textElement = document.getElementById('text-rotate');
+        const words = ["Java", "Code", "Automação", "Backend" , "Python"];
+        let wordIdx = 0, charIdx = 0, isDeleting = false;
+
+        function typeEffect() {
+            const currentWord = words[wordIdx];
+            textElement.textContent = isDeleting 
+                ? currentWord.substring(0, charIdx--) 
+                : currentWord.substring(0, charIdx++);
+
+            let speed = isDeleting ? 70 : 150;
+
+            if (!isDeleting && charIdx > currentWord.length) {
+                isDeleting = true; speed = 2500; // Pausa quando termina de escrever
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false; wordIdx = (wordIdx + 1) % words.length;
+                speed = 500;
+            }
+            setTimeout(typeEffect, speed);
+        }
+        typeEffect();
+    </script>
+</body>
+</html>
