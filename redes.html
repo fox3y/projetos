@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes Sociais | @Olinuh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card: #161b22;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --gold: #f2c94c;
+            --blue: #58a6ff;
+            --red: #ff4d4d;
+            --discord: #5865F2;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header { text-align: center; margin-bottom: 50px; animation: fadeInDown 0.8s ease; }
+        
+        .back-btn { 
+            color: #8b949e; text-decoration: none; font-size: 0.85rem; 
+            display: inline-flex; align-items: center; gap: 8px; margin-bottom: 30px;
+        }
+        .back-btn:hover { color: var(--blue); }
+
+        h1 { font-size: 2.5rem; font-weight: 800; background: linear-gradient(45deg, var(--gold), #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 30px;
+        }
+
+        .social-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .youtube-card:hover { border-color: var(--red); }
+        .discord-card:hover { border-color: var(--discord); }
+
+        .social-icon { font-size: 3rem; margin-bottom: 20px; }
+        .youtube-icon { color: var(--red); }
+        .discord-icon { color: var(--discord); }
+
+        h3 { font-size: 1.5rem; margin-bottom: 10px; color: #fff; }
+        p { color: #8b949e; font-size: 0.9rem; margin-bottom: 20px; }
+
+        .join-btn {
+            display: block;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html" class="back-btn"><i class="fas fa-chevron-left"></i> Voltar ao Painel</a>
+        <h1>Minhas Redes</h1>
+        <p>Acompanhe meu trabalho e entre para a comunidade.</p>
+    </div>
+
+    <div class="social-grid">
+        <a href="https://www.youtube.com/channel/UCVN8y7FQ3RZpGrOWz1NCnnw" target="_blank" class="social-card youtube-card">
+            <div class="social-icon youtube-icon"><i class="fab fa-youtube"></i></div>
+            <h3>YouTube</h3>
+            <p>Tutoriais, dicas de automação e engenharia de dados.</p>
+            <div class="join-btn" style="background: var(--red);">INSCREVER-SE</div>
+        </a>
+
+        <a href="https://discord.gg/F45STCDY5Q" target="_blank" class="social-card discord-card">
+            <div class="social-icon discord-icon"><i class="fab fa-discord"></i></div>
+            <h3>Discord</h3>
+            <p>Troque ideias com outros devs e tire suas dúvidas.</p>
+            <div class="join-btn" style="background: var(--discord);">ENTRAR NO SERVIDOR</div>
+        </a>
+    </div>
+
+</body>
+</html>
