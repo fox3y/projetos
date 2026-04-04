@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Oficial | @Olinuh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card: #161b22;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --blue: #58a6ff;
+            --gold: #f2c94c;
+            --green: #3fb950;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header { text-align: center; margin-bottom: 40px; width: 100%; max-width: 800px; }
+        .back-btn { 
+            color: var(--blue); text-decoration: none; font-size: 0.9rem; 
+            display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px;
+        }
+
+        h1 { font-size: 2rem; color: var(--gold); margin-bottom: 10px; }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .product-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 150px;
+            background: #0d1117;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--gold);
+        }
+
+        .product-info h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .product-info p { font-size: 0.85rem; color: #8b949e; margin-bottom: 15px; }
+
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--green);
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            background: var(--gold);
+            color: #000;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        .buy-btn:hover { opacity: 0.8; }
+
+        .footer { margin-top: 50px; color: #8b949e; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Voltar ao Painel</a>
+        <h1>Lojinha</h1>
+        <p>Scripts e ferramentas exclusivas para o seu fluxo</p>
+    </div>
+
+    <div class="products-grid">
+        
+        <div class="product-card">
+            <div class="product-img"><i class="fas fa-robot"></i></div>
+            <div class="product-info">
+                <h3>Bot de WhatsApp</h3>
+                <p>Automação completa para atendimento automático.</p>
+                <div class="price-tag">R$ 49,90</div>
+                <a href="https://wa.me/5579981304655" class="buy-btn">Comprar Agora</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-img"><i class="fas fa-database"></i></div>
+            <div class="product-info">
+                <h3>Pack de SQL</h3>
+                <p>Scripts otimizados para bancos de dados PostgreSQL e MySQL.</p>
+                <div class="price-tag">R$ 29,90</div>
+                <a href="https://wa.me/5579981304655" class="buy-btn">Comprar Agora</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-img"><i class="fas fa-code"></i></div>
+            <div class="product-info">
+                <h3>Template Dashboard</h3>
+                <p>O código fonte deste painel de controle para você usar.</p>
+                <div class="price-tag">R$ 19,90</div>
+                <a href="https://wa.me/5579981304655" class="buy-btn">Comprar Agora</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 Olinuh Store - Todos os direitos reservados</p>
+    </footer>
+
+</body>
+</html>
