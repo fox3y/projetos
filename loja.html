@@ -29,11 +29,10 @@
             overflow-x: hidden;
         }
 
-        /* Header e Botão Voltar */
         .header { text-align: center; margin-bottom: 50px; width: 100%; max-width: 800px; animation: fadeInDown 0.8s ease; }
         
         .back-btn { 
-            color: var(--gray); text-decoration: none; font-size: 0.85rem; 
+            color: #8b949e; text-decoration: none; font-size: 0.85rem; 
             display: inline-flex; align-items: center; gap: 8px; margin-bottom: 30px;
             transition: color 0.3s;
         }
@@ -42,7 +41,6 @@
         h1 { font-size: 2.5rem; font-weight: 800; background: linear-gradient(45deg, var(--gold), #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
         .header p { color: #8b949e; font-size: 1.1rem; }
 
-        /* Grid de Produtos */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -64,14 +62,12 @@
             justify-content: space-between;
         }
 
-        /* Efeito de Brilho no Hover */
         .product-card:hover {
             transform: translateY(-10px);
             border-color: var(--gold);
             box-shadow: 0 10px 30px rgba(242, 201, 76, 0.1);
         }
 
-        /* Badge de destaque */
         .badge {
             position: absolute;
             top: 15px;
@@ -96,7 +92,7 @@
         .product-info p { font-size: 0.95rem; color: #8b949e; margin-bottom: 25px; line-height: 1.5; }
 
         .price-area { margin-top: auto; border-top: 1px solid var(--border); padding-top: 20px; }
-        .price-label { font-size: 0.75rem; color: var(--gray); text-transform: uppercase; }
+        .price-label { font-size: 0.75rem; color: #8b949e; text-transform: uppercase; }
         .price-tag { font-size: 2rem; font-weight: 800; color: var(--green); margin-bottom: 20px; }
 
         .buy-btn {
@@ -108,23 +104,13 @@
             text-decoration: none;
             font-weight: 800;
             display: block;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s;
         }
 
-        .buy-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(242, 201, 76, 0.4);
-        }
+        .buy-btn:hover { transform: scale(1.05); }
 
-        /* Animações */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
 
         .footer { margin-top: 80px; color: #484f58; font-size: 0.85rem; text-align: center; }
     </style>
@@ -133,12 +119,11 @@
 
     <div class="header">
         <a href="index.html" class="back-btn"><i class="fas fa-chevron-left"></i> Painel de Controle</a>
-        <h1>loja do Olinuh</h1>
-        <p>Transforme seu conhecimento e sua produtividade hoje.</p>
+        <h1>Loja do Olinuh</h1>
+        <p>Escolha o seu material para ver o que tem dentro.</p>
     </div>
 
     <div class="products-grid">
-        
         <div class="product-card">
             <span class="badge">🔥 Popular</span>
             <div class="product-icon"><i class="fas fa-chart-pie"></i></div>
@@ -147,9 +132,8 @@
                 <p>Tenha o controle total do seu negócio na palma da mão com dashboards em tempo real. Decida com dados, não com sorte.</p>
             </div>
             <div class="price-area">
-                <p class="price-label">Investimento Único</p>
                 <div class="price-tag">R$ 47,00</div>
-                <a href="https://wa.me/5579981304655?text=Olá!%20Quero%20ter%20o%20controle%20total%20com%20o%20Dashboard%20de%20Métricas" class="buy-btn" target="_blank">GARANTIR ACESSO</a>
+                <a href="detalhes-1.html" class="buy-btn">VER MATERIAL</a>
             </div>
         </div>
 
@@ -161,9 +145,8 @@
                 <p>Desbloqueie o raciocínio lógico e aprenda matemática de um jeito que nunca te ensinaram na escola. Liberdade total.</p>
             </div>
             <div class="price-area">
-                <p class="price-label">Investimento Único</p>
                 <div class="price-tag">R$ 29,90</div>
-                <a href="https://wa.me/5579981304655?text=Olá!%20Quero%20perder%20o%20medo%20da%20matemática%20e%20aprender%20de%20verdade" class="buy-btn" target="_blank" style="background: linear-gradient(90deg, var(--blue), #80bdff);">QUERO APRENDER</a>
+                <a href="detalhes-2.html" class="buy-btn" style="background: linear-gradient(90deg, var(--blue), #80bdff);">VER MATERIAL</a>
             </div>
         </div>
 
@@ -175,17 +158,14 @@
                 <p>O protocolo secreto para dominar qualquer matéria estudando menos tempo. Notas altas são apenas o começo.</p>
             </div>
             <div class="price-area">
-                <p class="price-label">Investimento Único</p>
                 <div class="price-tag">R$ 19,90</div>
-                <a href="https://wa.me/5579981304655?text=Olá!%20Quero%20conhecer%20o%20Protocolo%20de%20Elite%20e%20tirar%20notas%20altas" class="buy-btn" target="_blank" style="background: linear-gradient(90deg, var(--purple), #bc95ff);">SER O MELHOR</a>
+                <a href="detalhes-3.html" class="buy-btn" style="background: linear-gradient(90deg, var(--purple), #bc95ff);">VER MATERIAL</a>
             </div>
         </div>
-
     </div>
 
     <footer class="footer">
-        <p>© 2026 Olinuh Solutions • Todos os direitos reservados</p>
+        <p>© 2026 Olinuh Solutions</p>
     </footer>
-
 </body>
 </html>
