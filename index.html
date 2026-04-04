@@ -14,6 +14,7 @@
             --blue: #58a6ff;
             --gray: #8b949e;
             --green: #3fb950;
+            --gold: #f2c94c; /* Nova cor para a loja */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
@@ -83,6 +84,7 @@
         /* Cores Temáticas */
         .youtube-icon { background: rgba(255, 77, 77, 0.1); color: #ff4d4d; }
         .github-icon { background: rgba(255, 255, 255, 0.05); color: #ffffff; }
+        .shop-icon { background: rgba(242, 201, 76, 0.1); color: var(--gold); } /* Estilo da Loja */
         .form-icon { background: rgba(88, 166, 255, 0.1); color: var(--blue); }
 
         .content-text h3 { font-size: 1.05rem; margin-bottom: 2px; font-weight: 600; }
@@ -137,11 +139,22 @@
                 <span class="status-badge">Active</span>
             </a>
 
+            <a href="loja.html" class="service-item">
+                <div class="service-info">
+                    <div class="icon-box shop-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="content-text">
+                        <h3>Loja Oficial</h3>
+                        <p>Scripts, Automações e Produtos</p>
+                    </div>
+                </div>
+                <span class="status-badge" style="color: var(--gold); border-color: var(--gold); background: rgba(242, 201, 76, 0.1);">Novidade</span>
+            </a>
+
             <a href="formulario.html" class="service-item">
                 <div class="service-info">
                     <div class="icon-box form-icon"><i class="fas fa-code-branch"></i></div>
                     <div class="content-text">
-                        <h3>Formulario</h3>
+                        <h3>Formulario dos Inscritos</h3>
                         <p>Envie sua mensagem para o servidor</p>
                     </div>
                 </div>
@@ -170,7 +183,7 @@
             let speed = isDeleting ? 70 : 150;
 
             if (!isDeleting && charIdx > currentWord.length) {
-                isDeleting = true; speed = 2500; // Pausa quando termina de escrever
+                isDeleting = true; speed = 2500; 
             } else if (isDeleting && charIdx === 0) {
                 isDeleting = false; wordIdx = (wordIdx + 1) % words.length;
                 speed = 500;
