@@ -14,7 +14,8 @@
             --blue: #58a6ff;
             --gray: #8b949e;
             --green: #3fb950;
-            --gold: #f2c94c; /* Nova cor para a loja */
+            --gold: #f2c94c;
+            --purple: #a371f7; /* Adicionado para o novo botão */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
@@ -84,8 +85,9 @@
         /* Cores Temáticas */
         .youtube-icon { background: rgba(255, 77, 77, 0.1); color: #ff4d4d; }
         .github-icon { background: rgba(255, 255, 255, 0.05); color: #ffffff; }
-        .shop-icon { background: rgba(242, 201, 76, 0.1); color: var(--gold); } /* Estilo da Loja */
+        .shop-icon { background: rgba(242, 201, 76, 0.1); color: var(--gold); }
         .form-icon { background: rgba(88, 166, 255, 0.1); color: var(--blue); }
+        .social-icon { background: rgba(163, 113, 247, 0.1); color: var(--purple); }
 
         .content-text h3 { font-size: 1.05rem; margin-bottom: 2px; font-weight: 600; }
         .content-text p { font-size: 0.85rem; color: var(--gray); }
@@ -161,6 +163,17 @@
                 <span class="status-badge" style="color: #f0883e; border-color: #f0883e; background: rgba(240, 136, 62, 0.1);">Local</span>
             </a>
 
+            <a href="redes.html" class="service-item">
+                <div class="service-info">
+                    <div class="icon-box social-icon"><i class="fas fa-share-nodes"></i></div>
+                    <div class="content-text">
+                        <h3>Minhas Redes Sociais</h3>
+                        <p>YouTube e Discord</p>
+                    </div>
+                </div>
+                <span class="status-badge" style="color: var(--purple); border-color: var(--purple); background: rgba(163, 113, 247, 0.1);">Social</span>
+            </a>
+
         </div>
 
         <footer class="footer">
@@ -169,7 +182,6 @@
     </div>
 
     <script>
-        // Lógica do Typewriter (Digitação)
         const textElement = document.getElementById('text-rotate');
         const words = ["Java", "Code", "Automação", "Backend" , "Python"];
         let wordIdx = 0, charIdx = 0, isDeleting = false;
