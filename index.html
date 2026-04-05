@@ -15,7 +15,7 @@
             --gray: #8b949e;
             --green: #3fb950;
             --gold: #f2c94c;
-            --purple: #a371f7; /* Adicionado para o novo botão */
+            --purple: #a371f7;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
@@ -27,11 +27,11 @@
             justify-content: center;
             padding: 60px 20px;
             line-height: 1.6;
+            overflow-x: hidden; /* Evita scroll lateral na animação */
         }
 
         .container { width: 100%; max-width: 600px; }
 
-        /* Header - Foto e Bio */
         .profile-header { text-align: center; margin-bottom: 50px; }
         .profile-img { 
             width: 110px; height: 110px; border-radius: 50%; 
@@ -53,7 +53,6 @@
             gap: 10px;
         }
 
-        /* Lista de Serviços Estilo Dashboard */
         .service-list { display: flex; flex-direction: column; gap: 12px; }
         
         .service-item {
@@ -67,6 +66,7 @@
             text-decoration: none;
             color: inherit;
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
         }
 
         .service-item:hover { 
@@ -82,12 +82,12 @@
             display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
         }
 
-        /* Cores Temáticas */
         .youtube-icon { background: rgba(255, 77, 77, 0.1); color: #ff4d4d; }
         .github-icon { background: rgba(255, 255, 255, 0.05); color: #ffffff; }
         .shop-icon { background: rgba(242, 201, 76, 0.1); color: var(--gold); }
         .form-icon { background: rgba(88, 166, 255, 0.1); color: var(--blue); }
         .social-icon { background: rgba(163, 113, 247, 0.1); color: var(--purple); }
+        .terminal-icon { background: rgba(63, 185, 80, 0.1); color: var(--green); }
 
         .content-text h3 { font-size: 1.05rem; margin-bottom: 2px; font-weight: 600; }
         .content-text p { font-size: 0.85rem; color: var(--gray); }
@@ -98,6 +98,88 @@
             border: 1px solid var(--green);
             font-weight: bold;
             text-transform: uppercase;
+        }
+
+        /* TERMINAL MODAL */
+        #terminal-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .terminal-window {
+            background: #000;
+            width: 95%;
+            max-width: 550px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            padding: 15px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            box-shadow: 0 0 30px rgba(0,0,0,0.6);
+        }
+
+        .terminal-header {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 8px;
+        }
+
+        .dot-close { 
+            width: 12px; height: 12px; border-radius: 50%; 
+            background: #ff5f56; cursor: pointer; 
+            box-shadow: 0 0 5px rgba(255, 95, 86, 0.5);
+        }
+
+        .terminal-content {
+            color: #3fb950;
+            font-size: 0.78rem;
+            line-height: 1.2;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            overflow-x: auto;
+            margin-bottom: 10px;
+        }
+
+        .ascii-art { color: var(--blue); white-space: pre; font-weight: bold; }
+        .sys-info { color: #fff; white-space: pre; }
+
+        /* INPUT AREA */
+        .terminal-input-line {
+            display: flex;
+            color: #3fb950;
+            font-size: 0.8rem;
+            gap: 8px;
+        }
+        #cmd-input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            outline: none;
+            flex: 1;
+            font-family: inherit;
+        }
+
+        /* ESTILO DO EASTER EGG (16 CAINDO) */
+        .num-16 {
+            position: fixed;
+            color: var(--blue);
+            font-weight: bold;
+            font-size: 24px;
+            pointer-events: none;
+            z-index: 9999;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         .footer { text-align: center; margin-top: 60px; color: var(--gray); font-size: 0.8rem; }
@@ -113,19 +195,14 @@
         </header>
 
         <div class="section-title">
-            <i class="fas fa-server" style="font-size: 0.7rem;"></i> 
-            Aplicações Ativas
+            <i class="fas fa-server" style="font-size: 0.7rem;"></i> Aplicações Ativas
         </div>
         
         <div class="service-list">
-            
             <a href="https://www.youtube.com/channel/UCVN8y7FQ3RZpGrOWz1NCnnw" target="_blank" class="service-item">
                 <div class="service-info">
                     <div class="icon-box youtube-icon"><i class="fab fa-youtube"></i></div>
-                    <div class="content-text">
-                        <h3>Meu canal do YouTube</h3>
-                        <p>Tutoriais e Engenharia de Dados</p>
-                    </div>
+                    <div class="content-text"><h3>YouTube</h3><p>Tutoriais e Engenharia de Dados</p></div>
                 </div>
                 <span class="status-badge">Online</span>
             </a>
@@ -133,10 +210,7 @@
             <a href="https://github.com/fox3y" target="_blank" class="service-item">
                 <div class="service-info">
                     <div class="icon-box github-icon"><i class="fab fa-github"></i></div>
-                    <div class="content-text">
-                        <h3>Perfil do GitHub</h3>
-                        <p>Repositórios e Projetos Open Source</p>
-                    </div>
+                    <div class="content-text"><h3>GitHub</h3><p>Projetos Open Source</p></div>
                 </div>
                 <span class="status-badge">Active</span>
             </a>
@@ -144,65 +218,143 @@
             <a href="loja.html" class="service-item">
                 <div class="service-info">
                     <div class="icon-box shop-icon"><i class="fas fa-shopping-cart"></i></div>
-                    <div class="content-text">
-                        <h3>Loja Oficial</h3>
-                        <p>Scripts, Automações e Produtos</p>
-                    </div>
+                    <div class="content-text"><h3>Loja Oficial</h3><p>Scripts e Produtos</p></div>
                 </div>
-                <span class="status-badge" style="color: var(--gold); border-color: var(--gold); background: rgba(242, 201, 76, 0.1);">Novidade</span>
+                <span class="status-badge" style="color: var(--gold); border-color: var(--gold);">Novidade</span>
             </a>
 
-            <a href="formulario.html" class="service-item">
+            <div onclick="openTerminal()" class="service-item">
                 <div class="service-info">
-                    <div class="icon-box form-icon"><i class="fas fa-code-branch"></i></div>
-                    <div class="content-text">
-                        <h3>Formulario dos Inscritos</h3>
-                        <p>Envie sua mensagem para o servidor</p>
-                    </div>
+                    <div class="icon-box terminal-icon"><i class="fas fa-terminal"></i></div>
+                    <div class="content-text"><h3>Terminal</h3><p>Um terminal</p></div>
                 </div>
-                <span class="status-badge" style="color: #f0883e; border-color: #f0883e; background: rgba(240, 136, 62, 0.1);">Local</span>
-            </a>
+                <span class="status-badge" style="color: var(--green); border-color: var(--green);">Root</span>
+            </div>
 
             <a href="redes.html" class="service-item">
                 <div class="service-info">
                     <div class="icon-box social-icon"><i class="fas fa-share-nodes"></i></div>
-                    <div class="content-text">
-                        <h3>Minhas Redes Sociais</h3>
-                        <p>YouTube e Discord</p>
-                    </div>
+                    <div class="content-text"><h3>Redes Sociais</h3><p>Discord e Comunidade</p></div>
                 </div>
-                <span class="status-badge" style="color: var(--purple); border-color: var(--purple); background: rgba(163, 113, 247, 0.1);">Social</span>
+                <span class="status-badge" style="color: var(--purple); border-color: var(--purple);">Social</span>
             </a>
-
         </div>
 
-        <footer class="footer">
-            <p>© 2026 Olinuh </p>
-        </footer>
+        <footer class="footer"><p>© 2026 Olinuh</p></footer>
+    </div>
+
+    <div id="terminal-modal" onclick="closeTerminal()">
+        <div class="terminal-window" onclick="event.stopPropagation()">
+            <div class="terminal-header">
+                <div class="dot-close" onclick="closeTerminal()"></div>
+            </div>
+            <div id="terminal-layout" class="terminal-content"></div>
+            <div class="terminal-input-line">
+                <span>olinuh@root:~$</span>
+                <input type="text" id="cmd-input" spellcheck="false" autocomplete="off">
+            </div>
+        </div>
     </div>
 
     <script>
+        // Typewriter
         const textElement = document.getElementById('text-rotate');
         const words = ["Java", "Code", "Automação", "Backend" , "Python"];
         let wordIdx = 0, charIdx = 0, isDeleting = false;
 
         function typeEffect() {
             const currentWord = words[wordIdx];
-            textElement.textContent = isDeleting 
-                ? currentWord.substring(0, charIdx--) 
-                : currentWord.substring(0, charIdx++);
-
+            textElement.textContent = isDeleting ? currentWord.substring(0, charIdx--) : currentWord.substring(0, charIdx++);
             let speed = isDeleting ? 70 : 150;
-
-            if (!isDeleting && charIdx > currentWord.length) {
-                isDeleting = true; speed = 2500; 
-            } else if (isDeleting && charIdx === 0) {
-                isDeleting = false; wordIdx = (wordIdx + 1) % words.length;
-                speed = 500;
-            }
+            if (!isDeleting && charIdx > currentWord.length) { isDeleting = true; speed = 2500; } 
+            else if (isDeleting && charIdx === 0) { isDeleting = false; wordIdx = (wordIdx + 1) % words.length; speed = 500; }
             setTimeout(typeEffect, speed);
         }
         typeEffect();
+
+        // Terminal Logic
+        const terminalInput = document.getElementById('cmd-input');
+
+        function openTerminal() {
+            const modal = document.getElementById('terminal-modal');
+            const layout = document.getElementById('terminal-layout');
+            modal.style.display = 'flex';
+            setTimeout(() => terminalInput.focus(), 50);
+
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const ram = Math.round(performance.memory ? performance.memory.jsHeapSizeLimit/1048576 : 8192);
+
+            const animeArt = `
+      /\\_/\\
+    ( o.o )
+     > ^ <
+    /         \\
+   |           |
+ (___m_m_)
+ [Linuh-OS]
+            `;
+
+            const infoText = `
+olinuh@${isMobile ? 'mobile' : 'desktop'}
+-----------------
+OS: ${navigator.platform}
+Host: Web Browser
+Kernel: V8 Engine
+Uptime: ${Math.floor(Math.random() * 60)} mins
+Resolution: ${window.screen.width}x${window.screen.height}
+CPU: ${navigator.hardwareConcurrency || 4} Cores
+Memory: ${ram}MB
+Shell: /bin/zsh
+            `;
+
+            layout.innerHTML = `<div class="ascii-art">${animeArt}</div><div class="sys-info">${infoText}</div>`;
+        }
+
+        function closeTerminal() {
+            document.getElementById('terminal-modal').style.display = 'none';
+        }
+
+        // LÓGICA DO EASTER EGG (LINO16)
+        function startEasterEgg() {
+            const duration = 5000; // 5 segundos
+            const end = Date.now() + duration;
+
+            const interval = setInterval(() => {
+                if (Date.now() > end) {
+                    clearInterval(interval);
+                    return;
+                }
+
+                const el = document.createElement('div');
+                el.className = 'num-16';
+                el.innerText = '16';
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.top = '-50px';
+                el.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                el.style.animationDuration = (Math.random() * 2 + 1) + 's';
+                el.style.opacity = Math.random();
+
+                document.body.appendChild(el);
+
+                setTimeout(() => el.remove(), 3000);
+            }, 100);
+        }
+
+        terminalInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const cmd = this.value.toLowerCase().trim();
+                
+                if (cmd === 'lino16') {
+                    startEasterEgg();
+                } else if (cmd === 'exit') {
+                    closeTerminal();
+                } else if (cmd === 'clear') {
+                    document.getElementById('terminal-layout').innerHTML = '';
+                }
+                
+                this.value = '';
+            }
+        });
     </script>
 </body>
 </html>
